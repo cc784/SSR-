@@ -10,33 +10,29 @@
     
 </body>
 <script>
-const promise = new Promise((resolve,reject)=>{
-    setTimeout(function(){
-        var res = 60;
-        if(res>=60){
-            resolve();
-        }else{
-            reject();
+// 考英语
+function testYingYu(){
+            return new Promise((resolve, reject) => {
+                setTimeout(function(){
+                    var res = 60;
+
+                    if(res >= 60){
+                        resolve({
+                            message: "小明同学英语及格了"
+                        });
+                    }else{
+                        reject();
+                    }
+                }, 2000);   
+            });
         }
-    },2000)
-});
 
-promise.then(function(){
-    console.log('奖励')
-}).catch(function(){
-    console.log('毒打')
-})
-// ------------------------------------------------
-async function test(){
-    const yuwen= await testYuwen();
-    console.log(yuwen)
+        async function test(){
+            const yuwen =await testYingYu();
+            console.log(yuwen)
+        }
 
-    const shuxue =await testShuxue();
-    console.log(shuxue)
+        test();
 
-    const yingyu =await testYingYu();
-    console.log(yingyu)
-}
-test();
 </script>
 </html>
